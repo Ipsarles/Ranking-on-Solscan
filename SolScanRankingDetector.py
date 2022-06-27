@@ -62,13 +62,11 @@ def searcher(target=4200,start=0,counter=0):
                     print("\n\n--------------------\n\n  REINCREMENTATION\n\n--------------------\n\n")
                     searcher(target,start,counter)
             else:
-                if(target==4200):
-                    with open('Ranking.csv', 'a', newline='') as csvfile:
-                        fieldnames = ['Rank']
-                        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)                        
-                        writer.writerow({'Rank':content["data"][-1]['rank']})            
-                    csvfile.close()
-
+                with open('Ranking.csv', 'a', newline='') as csvfile:
+                    fieldnames = ['Rank']
+                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)                        
+                    writer.writerow({'Rank':content["data"][-1]['rank']})            
+                csvfile.close()
                 return print("\n\n\n\n\n\n\n\n",wallet,"Wallet n°",content["data"][-1]['rank'])                
     print("\n\n\n",wallet,"Wallet n°",content["data"][-1]['rank'],"\n\n\n\n")   
             
